@@ -27,4 +27,4 @@ Note:
 * Create IBM Watson™ Speech to Text instance [here](https://cloud.ibm.com/catalog/services/speech-to-text).
 * Create IBM Watson™ Language Translator instance [here](https://cloud.ibm.com/catalog/services/language-translator).
 
-![credentials](credentials.png)
+<img src="https://github.com/elmoallistair/watson-s2t-language-translator/blob/main/credentials.png">
