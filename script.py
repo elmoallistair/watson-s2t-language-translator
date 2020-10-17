@@ -1,5 +1,3 @@
-# See the project: https://github.com/elmoallistair/watson-s2t-language-translator
-
 # Importing required modules
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_watson import SpeechToTextV1 
@@ -7,7 +5,7 @@ from ibm_watson import LanguageTranslatorV3
 from pandas import json_normalize
 
 # Specifies the sample audio
-filename = '<AUDIO_FILE>.mp3'
+filename = 'PolynomialRegressionandPipelines.mp3'
 
 # 1. Transcribes audio to text
 
@@ -21,7 +19,7 @@ speech_to_text = SpeechToTextV1(authenticator=s2t_auth)
 speech_to_text.set_service_url(URL_S2T)
 
 # Recognize the audio
-print("recognizing audio.... ")
+print("recognizing audio....  ")
 with open(filename, mode="rb") as wav:
     s2t_response = speech_to_text.recognize(audio=wav, content_type='audio/mp3')
     print("done")
@@ -30,7 +28,7 @@ with open(filename, mode="rb") as wav:
 # print("\nResponse: \n", s2t_response.result)
 
 # Normalize the result
-print("\nNormalized response: \n", json_normalize(s2t_response.result['results'],"alternatives"))
+print("\nNormalized response:\n", json_normalize(s2t_response.result['results'],"alternatives"))
 
 s2t_responses_list = []
 for responses in s2t_response.result['results']:
@@ -57,7 +55,7 @@ language_translator.set_service_url(URL_LT)
 json_normalize(language_translator.list_identifiable_languages().get_result(), "languages")
 
 # Translate from EN to ID
-print("\ntranslating text.... ")
+print("\ntranslating text....  ")
 tl_response = language_translator.translate(text=final_result_s2t, model_id='en-id')
 print("done")
 tl_result = tl_response.get_result()
